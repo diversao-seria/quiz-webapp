@@ -1,7 +1,24 @@
-# quiz-webapp
+# README
 
-<<<<<<< HEAD
-Hello world!
-=======
-Diego: Hello!
->>>>>>> 678e8044728f9819c872a0692e8ef15aa0536c3a
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

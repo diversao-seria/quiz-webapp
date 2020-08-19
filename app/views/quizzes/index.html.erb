@@ -1,0 +1,14 @@
+<h1>Quizzes#index</h1>
+<p>Find me in app/views/quizzes/index.html.erb</p>
+
+<% @quizzes.each do |quiz| %>
+  <tr>
+    <td><%= quiz.user_id %></td>
+    <td><%= quiz.title %></td>
+    <td><%= quiz.code %></td>
+    <td><%= link_to "Show", quiz %></td>
+    <br>
+  </tr>
+<% end %>
+
+<%= link_to "New", new_quiz_path %>

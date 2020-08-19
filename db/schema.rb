@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_08_15_161018) do
 
   create_table "quizzes", force: :cascade do |t|
     t.bigint "user_id"
+    t.string "title"
     t.string "code"
     t.jsonb "questions"
     t.datetime "created_at", precision: 6, null: false

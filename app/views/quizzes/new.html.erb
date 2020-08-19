@@ -1,0 +1,30 @@
+<h1>Quizzes#new</h1>
+<p>Find me in app/views/quizzes/new.html.erb</p>
+
+<%= form_for @quiz do |f| %>
+  <p>
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id%>
+  </p>
+
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_area :title %>
+  </p>
+
+  <p>
+    <%= f.label :code %><br>
+    <%= f.text_area :code %>
+  </p>
+
+  <p>
+    <%= f.label :questions %><br>
+    <%= f.text_area :questions %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', quizzes_path %>

@@ -2,7 +2,6 @@
 <p>Find me in app/views/quizzes/new.html.erb</p>
 
 <%= form_for @quiz do |f| %>
-  <%= @quiz.errors.full_messages.first if @quiz.errors.any? %>
   <p>
     <%= f.label :user_id %><br>
     <%= f.text_field :user_id%>

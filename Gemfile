@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'sassc'
 gem 'bootstrap-sass'
+gem 'rails-i18n'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

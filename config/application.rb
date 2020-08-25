@@ -31,5 +31,8 @@ module QuizWebapp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
+    config.i18n.default_locale = :pt
   end
 end

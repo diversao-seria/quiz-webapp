@@ -1,14 +1,18 @@
-<h1>Quizzes#index</h1>
-<p>Find me in app/views/quizzes/index.html.erb</p>
+<div style="margin-bottom: 50px">
+  <h3>Crie agora um novo quiz!</h3>
+  <%= link_to "Criar", new_quiz_path, class: "btn btn-primary"%>
+</div>
 
-<% @quizzes.each do |quiz| %>
-  <tr>
-    <td><%= quiz.user_id %></td>
-    <td><%= quiz.title %></td>
-    <td><%= quiz.code %></td>
-    <td><%= link_to "Show", quiz %></td>
-    <br>
-  </tr>
+<% if @quizzes.any? %>
+  <h4>Seus quizzes...</h4>
+  <div class="container" style="width: 600px">
+    <% @quizzes.each do |quiz| %>
+      <table class="table index-table">
+        <td><%= quiz.user_id %></td>
+        <td><%= quiz.title %></td>
+        <td><%= quiz.code %></td>
+        <td><%= link_to "Show", quiz %></td>
+      </table>
+    <% end %>
+  </div>
 <% end %>
-
-<%= link_to "New", new_quiz_path %>

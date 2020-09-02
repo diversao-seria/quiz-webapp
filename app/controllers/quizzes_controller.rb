@@ -21,6 +21,12 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def find_by_code
+    @quiz = Quiz.find_by(code: params["code"])
+
+    render :json => @quiz
+  end
+
   def quiz_params
     params.require(:quiz).permit(
       :user_id,

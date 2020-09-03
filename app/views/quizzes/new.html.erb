@@ -13,10 +13,9 @@
     <%= f.text_area :title %>
   </p>
 
-  <p>
-    <%= f.label :questions %><br>
-    <%= f.text_area :questions %>
-  </p>
+  <%= link_to "Question", show_question_path, :remote => true %>
+  
+  <div id="questions"></div>
 
   <p>
     <%= f.submit %>

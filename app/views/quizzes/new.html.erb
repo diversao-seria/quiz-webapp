@@ -1,25 +1,26 @@
-<h1>Quizzes#new</h1>
-<p>Find me in app/views/quizzes/new.html.erb</p>
+<h1>Criação de Novo Quiz</h1>
 
 <%= form_for @quiz do |f| %>
   <%= @quiz.errors.full_messages.first if @quiz.errors.any? %>
   <p>
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id%>
+    <%= f.label :user_id, 'Usuário' %><br>
+    <%= f.text_field(:user_id, {:class => 'form-control'}) %>
   </p>
 
   <p>
-    <%= f.label :title %><br>
-    <%= f.text_area :title %>
+    <%= f.label :title, 'Título do Quiz' %><br>
+    <%= f.text_area(:title, {:class => 'form-control'}) %>
   </p>
 
-  <%= link_to "Question", show_question_path, :remote => true %>
-  
   <div id="questions"></div>
 
+  <%= link_to "Adicionar Nova Pergunta", show_question_path, :remote => true, :class => 'btn btn-primary' %>
+
+  <hr>
   <p>
-    <%= f.submit %>
+    <%= f.submit({:class => 'btn btn-success'})%>
   </p>
 <% end %>
 
-<%= link_to 'Back', quizzes_path %>
+  <hr>
+<%= link_to 'Back', quizzes_path, :class => 'btn btn-primary' %>

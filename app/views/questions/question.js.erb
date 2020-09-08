@@ -1,2 +1,7 @@
 
 $('#questions').append($('<div>').html("<div> <%= escape_javascript(render :partial => 'question')%> </div>"))
+
+$('.close-div').click(function(){
+   $(this).parent().parent().remove();
+    }
+);

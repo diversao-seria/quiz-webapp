@@ -1,7 +1,10 @@
 <hr>
-<div class="form-group">
+<div id="remove" class="form-group">
     <label for=inputQuestion> <h2>Pergunta</h2></label>
     <input type="text" class="form-control" id="inputQuestion" placeholder="Adicione sua pergunta">
 </div>
 <%= render partial: "alternative" %>
+
+<%= link_to "Remover Pergunta", remove_question_path, :remote => true, :class => 'btn btn-danger close-div' %>
+
 <hr>

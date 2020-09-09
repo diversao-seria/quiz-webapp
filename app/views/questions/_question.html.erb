@@ -1,10 +1,55 @@
-<hr>
-<div id="remove" class="form-group">
-    <label for=inputQuestion> <h2>Pergunta</h2></label>
-    <input type="text" class="form-control" id="inputQuestion" placeholder="Adicione sua pergunta">
+<div class="container question-container">
+  <!-- Question -->
+  <div class="col-md-12">
+    <label> <h3>Questão</h3> </label>
+    <input type="text" class="form-control" placeholder="Adicione sua questão"> <br>
+  </div>
+
+  <!-- Alternatives -->
+  <div class="alternatives">
+    <div class="form-row">
+      <div class="col-md-8">
+        <input type="text" class="form-control" placeholder="Alternativa 1">
+      </div>
+      <div class="col-md-4" align="left">
+        <input type="radio" id="alterative1" name="alternatives">
+        <label> Alternativa Correta </label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-8">
+        <input type="text" class="form-control" placeholder="Alternativa 2">
+      </div>
+      <div class="col-md-4" align="left">
+        <input type="radio" id="alterative2" name="alternatives">
+        <label> Alternativa Correta </label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-8">
+        <input type="text" class="form-control" placeholder="Alternativa 3">
+      </div>
+      <div class="col-md-4" align="left">
+        <input type="radio" id="alterative3" name="alternatives">
+        <label> Alternativa Correta </label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-8">
+        <input type="text" id="alterative4" class="form-control" placeholder="Alternativa 4">
+      </div>
+      <div class="col-md-4" align="left">
+        <input type="radio" name="alternatives">
+        <label> Alternativa Correta </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <br> <%= link_to "Remover Questão", remove_question_path, :remote => true, :class => 'btn btn-danger remove-question' %>
+    <hr>
+  </div>
 </div>
-<%= render partial: "alternative" %>
-
-<%= link_to "Remover Pergunta", remove_question_path, :remote => true, :class => 'btn btn-danger close-div' %>
-
-<hr>

@@ -13,5 +13,4 @@ class QuestionsController < ApplicationController
       format.js { }
     end
   end
-
 end

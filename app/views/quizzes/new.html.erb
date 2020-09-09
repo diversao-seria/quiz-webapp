@@ -12,15 +12,14 @@
     <%= f.text_area(:title, {:class => 'form-control'}) %>
   </p>
 
-  <div id="questions"></div>
+  <p>
+    <div id="questions"></div>
+    <%= link_to "Adicionar Nova Questão", show_question_path, :remote => true, :class => 'btn btn-primary' %>
+  </p>
 
-  <%= link_to "Adicionar Nova Pergunta", show_question_path, :remote => true, :class => 'btn btn-primary' %>
-
-  <hr>
   <p>
     <%= f.submit({:class => 'btn btn-success'})%>
   </p>
 <% end %>
 
-  <hr>
 <%= link_to 'Back', quizzes_path, :class => 'btn btn-primary' %>

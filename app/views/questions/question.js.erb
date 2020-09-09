@@ -1,7 +1,8 @@
 
-$('#questions').append($('<div>').html("<div> <%= escape_javascript(render :partial => 'question')%> </div>"))
+//Add question
+$('#questions').append($('<div id="question">').html("<%= escape_javascript(render :partial => 'question')%>"))
 
-$('.close-div').click(function(){
-   $(this).parent().parent().remove();
-    }
-);
+//Remove question
+$('.remove-question').click(function(){
+  $(this).parent().parent().parent().remove();
+});

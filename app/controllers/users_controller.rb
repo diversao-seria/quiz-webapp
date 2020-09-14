@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       redirect_to @user, notice: "Usuário foi criado com sucesso!"
       #sign_in(@user)
     else
-      render action: :new
+      render "new"
     end
   end
 

@@ -1,15 +1,15 @@
 <%= form_for :session, url: sign_in_path do |f| %>
-  <div class="field">
+  <div>
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <div class="field">
+  <div>
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
+  <div>
     <%= f.submit "Log in" %>
   </div>
 

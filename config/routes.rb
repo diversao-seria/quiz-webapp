@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'sessions#new'
+  root :to => 'sessions#new'
 
   resources :users
   get 'sign_in' => 'sessions#new'

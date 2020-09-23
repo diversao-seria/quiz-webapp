@@ -1,4 +1,6 @@
 class QuizzesController < ApplicationController
+  before_action :authorize, except: [:find_by_code]
+
   def index
     @quizzes = Quiz.all
   end

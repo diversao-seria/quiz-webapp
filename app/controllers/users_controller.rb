@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :authorize, except: [:new, :create]
 
+  def index
+    redirect_to '/quizzes'
+  end
+
   def new
     @user = User.new
   end
@@ -11,7 +15,7 @@ class UsersController < ApplicationController
       sign_in(@user)
       redirect_to '/quizzes'
     else
-      render "new"
+      render 'new'
     end
   end
 

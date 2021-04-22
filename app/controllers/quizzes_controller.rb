@@ -2,11 +2,19 @@ class QuizzesController < ApplicationController
   before_action :authorize, except: [:find_by_code]
 
   def index
-    @quizzes = Quiz.all
+    @quizzes = Quiz.where(user_id: @current_user)
   end
 
   def show
-    @quiz = Quiz.find(params[:id])
+    begin
+      @quiz = Quiz.find(params[:id])
+
+      if @quiz.user_id != @current_user.id
+        redirect_to '/quizzes'
+      end
+    rescue => e
+      redirect_to '/quizzes'
+    end
   end
 
   def new
@@ -19,7 +27,7 @@ class QuizzesController < ApplicationController
     if @quiz.save
       redirect_to @quiz
     else
-      render "new"
+      render 'new'
     end
   end
 

@@ -1,8 +1,13 @@
 
 //Add question
-$('#questions').append($('<div id="question">').html("<%= escape_javascript(render :partial => 'question')%>"))
+$('#questions').append($('<div id="question">').html("<%= escape_javascript(render :partial => 'question')%>").hide().fadeIn())
 
 //Remove question
 $('.remove-question').click(function(){
-  $(this).parent().parent().parent().remove();
-});
+  if (!confirm('Tem certeza que deseja remover a questão?')) { return false }
+
+  $(this).parent().parent().parent().fadeOut("normal", function() { 
+    $(this).remove() 
+    } );
+  }
+);

@@ -19,10 +19,12 @@ class QuizzesController < ApplicationController
 
   def new
     @quiz = Quiz.new
+    @quiz.questions.build.alternatives.build
   end
 
   def create
     @quiz = Quiz.new(quiz_params)
+    @quiz.user_id = @current_user.id
 
     if @quiz.save
       redirect_to @quiz
@@ -42,7 +44,14 @@ class QuizzesController < ApplicationController
       :user_id,
       :title,
       :code,
-      :questions
+      :questions,
+      questions_attributes: [
+        :title,
+        alternatives_attributes: [
+          :text,
+          :correct
+        ]
+      ]
     )
   end
 end

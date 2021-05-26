@@ -25,6 +25,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'sassc'
 gem 'bootstrap-sass'
 gem 'rails-i18n'
+gem 'active_model_serializers'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -1,5 +1,5 @@
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :title, :alternatives
+  attributes :id, :title, :alternatives
 
   def alternatives
     ActiveModel::SerializableResource.new(object.alternatives, each_serializer: AlternativeSerializer)

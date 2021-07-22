@@ -8,10 +8,11 @@
   <div class="container" style="width: 600px">
     <% @quizzes.each do |quiz| %>
       <table class="table index-table">
-        <td><%= quiz.user_id %></td>
+        <td><%= quiz.id %></td>
         <td><%= quiz.title %></td>
         <td><%= quiz.code %></td>
         <td><%= link_to "Show", quiz %></td>
+        <td><%= link_to "Ver resultados", :controller => "dashboard", :quiz => quiz.id %></td>
       </table>
     <% end %>
   </div>

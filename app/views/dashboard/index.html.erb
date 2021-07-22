@@ -1,0 +1,10 @@
+<h2>Relatórios sobre o quiz "<%= @quiz_title %>" </h2>
+<% if @matches.any? %>
+  <h3>Dados gerais</h3>
+  <span>Dados individuais ainda não disponíveis</span>
+  <% @matches.each do |match| %>
+    <p><%= match.results %></p>
+  <% end %>
+<% else %>
+  <h3>Sem dados no momento</h3>
+<% end %>

@@ -27,9 +27,8 @@ ActiveRecord::Schema.define(version: 2021_04_29_223054) do
   create_table "matches", force: :cascade do |t|
     t.bigint "quiz_id"
     t.bigint "player_id"
+    t.datetime "start_time"
     t.jsonb "results"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.index ["player_id"], name: "index_matches_on_player_id"
     t.index ["quiz_id"], name: "index_matches_on_quiz_id"
   end
@@ -37,7 +36,6 @@ ActiveRecord::Schema.define(version: 2021_04_29_223054) do
   create_table "players", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

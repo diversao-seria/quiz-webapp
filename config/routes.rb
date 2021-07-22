@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root :to => 'sessions#new'
 
+  resources :dashboard
+  get '/dashboard/:id', to: 'dashboard#show'
+  get '/dashboard/:id/alunos', to: 'dashboard#list'
+
   resources :users
   get 'sign_in' => 'sessions#new'
   post 'sign_in' => 'sessions#create'

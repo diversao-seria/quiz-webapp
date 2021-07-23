@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_29_223054) do
+ActiveRecord::Schema.define(version: 2021_07_22_230024) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "adminpack"
   enable_extension "plpgsql"
 
   create_table "alternatives", force: :cascade do |t|
@@ -26,10 +27,10 @@ ActiveRecord::Schema.define(version: 2021_04_29_223054) do
 
   create_table "matches", force: :cascade do |t|
     t.bigint "quiz_id"
-    t.bigint "player_id"
-    t.datetime "start_time"
     t.jsonb "results"
-    t.index ["player_id"], name: "index_matches_on_player_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "start_time"
     t.index ["quiz_id"], name: "index_matches_on_quiz_id"
   end
 
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_04_29_223054) do
     t.bigint "user_id"
     t.string "title"
     t.string "code"
+    t.jsonb "questions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_quizzes_on_user_id"
@@ -67,7 +69,6 @@ ActiveRecord::Schema.define(version: 2021_04_29_223054) do
   end
 
   add_foreign_key "alternatives", "questions"
-  add_foreign_key "matches", "players"
   add_foreign_key "matches", "quizzes"
   add_foreign_key "questions", "quizzes"
   add_foreign_key "quizzes", "users"

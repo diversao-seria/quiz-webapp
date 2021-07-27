@@ -1,3 +1,27 @@
 // Place all the styles related to the matches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+#dados-gerais{
+  display: flex;
+  flex-direction: column;
+  background-color: #999999;
+  padding: 15px 30px 15px 30px;
+}
+#dados-corpo{
+  display: flex;
+  flex-direction: row;
+}
+.dados{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 10px;
+}
+
+.question-card{
+  display: flex;
+  padding: 10px;
+  background-color: #F1F1F1;
+  margin: 10px;
+  flex-direction: column;
+}

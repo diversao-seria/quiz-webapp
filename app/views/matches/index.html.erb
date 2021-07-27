@@ -1,11 +1,32 @@
-<h2>Relatórios sobre o quiz "<%= @quiz_title %>" </h2>
+<h2 style="margin-bottom: 50px">Relatórios sobre o quiz "<%= @quiz_title %>" </h2>
 <% if @matches.any? %>
-  <h3>Dados gerais</h3>
-  <h4>Dados individuais ainda não disponíveis</h4>
-  <span> Partidas jogadas: <%= @players %></span>
+  <div id="dados-gerais">
+    <span style="font-size: 24px">Dados gerais</span>
+    <div id="dados-corpo">
+      <div class="dados" id="dados-esquerda">
+        <span> Partidas jogadas: <%= @general_data['total_matches'] %></span>
+        <span> Total de respostas: <%= @general_data['total_answers'] %></span>
+        <span> Total de respostas corretas: <%= @general_data['correct_answers'] %></span>
+        <span> Total de respostas erradas: <%= @general_data['wrong_answers'] %></span>
+        <span> <%= @general_data['percentual'] %>% de acertos</span>
+      </div>
+      <div class="dados" id="dados-direita">
+        <span> Gráfico </span>
+      </div>
+    </div>
+  </div>
   <% @questions.each do |question| %>
-    <p><%= question %></p>
+    <div class="question-card">
+      <h4><%= question['title'] %></h4>
+      <span>Total de respostas = <%= question['total_answers'] %></span>
+      <span>Acertos = <%= question['correct'] %></span>
+      <span>Tempo médio de resposta = <%= question['average_time'] %> segundos</span>
+      <% if question['most_wrong_answer'] != nil %>
+        <span>Alternativa com o maior número de erros = <%= question['most_wrong_answer'] %></span>
+      <% end %>
+    </div>
   <% end %>
+
 <% else %>
   <h3>Sem dados no momento</h3>
 <% end %>

@@ -12,7 +12,7 @@
         <td><%= quiz.title %></td>
         <td><%= quiz.code %></td>
         <td><%= link_to "Show", quiz %></td>
-        <td><%= link_to "Ver resultados", :controller => "dashboard", :quiz => quiz.id %></td>
+        <td><%= link_to "Ver resultados", :controller => "matches", :quiz => quiz.id %></td>
       </table>
     <% end %>
   </div>

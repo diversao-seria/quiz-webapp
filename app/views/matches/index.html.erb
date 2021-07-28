@@ -1,16 +1,16 @@
 <h2 style="margin-bottom: 50px">Relatórios sobre o quiz "<%= @quiz_title %>" </h2>
 <% if @matches.any? %>
-  <div id="dados-gerais">
+  <div id="general-data">
     <span style="font-size: 24px">Dados gerais</span>
-    <div id="dados-corpo">
-      <div class="dados" id="dados-esquerda">
+    <div id="data-body">
+      <div class="data">
         <span> Partidas jogadas: <%= @general_data['total_matches'] %></span>
         <span> Total de respostas: <%= @general_data['total_answers'] %></span>
         <span> Total de respostas corretas: <%= @general_data['correct_answers'] %></span>
         <span> Total de respostas erradas: <%= @general_data['wrong_answers'] %></span>
         <span> <%= @general_data['percentual'] %>% de acertos</span>
       </div>
-      <div class="dados" id="dados-direita">
+      <div class="data">
         <span> Gráfico </span>
       </div>
     </div>

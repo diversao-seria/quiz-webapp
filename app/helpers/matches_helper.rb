@@ -14,12 +14,14 @@ module MatchesHelper
     questions = Question.where(:quiz_id => id)
     matches_questions = init_matches_data(matches)
     questions_list = []
+
     questions.each do |question|
       correct = 0
       total = 0
       average_time = []
       wrong_answers = []
       helps_used = []
+
       matches_questions.each do |match_question|
         if match_question['question_id'] === question.id
           if match_question['correct']
@@ -48,11 +50,13 @@ module MatchesHelper
 
   def select_general_data(data)
     results = []
+
     data.each do |d|
       results.push(d.results)
     end
     total_answers = 0
     total_correct = 0
+
     results.each do |result|
       total_answers += result['total_questions']
       total_correct += result['total_correct_questions']
@@ -65,5 +69,4 @@ module MatchesHelper
       'percentual' => ((total_correct / total_answers.to_f) * 100).to_int
     }
   end
-
 end

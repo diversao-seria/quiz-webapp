@@ -1,17 +1,17 @@
 // Place all the styles related to the matches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-#dados-gerais{
+#general-data{
   display: flex;
   flex-direction: column;
   background-color: #999999;
   padding: 15px 30px 15px 30px;
 }
-#dados-corpo{
+#data-body{
   display: flex;
   flex-direction: row;
 }
-.dados{
+.data{
   display: flex;
   flex-direction: column;
   flex-grow: 1;

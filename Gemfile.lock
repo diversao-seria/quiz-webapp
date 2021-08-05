@@ -84,6 +84,7 @@ GEM
     byebug (11.1.3)
     case_transform (0.2)
       activesupport
+    chartkick (4.0.5)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
     erubi (1.9.0)
@@ -238,6 +239,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   bootstrap-sass
   byebug
+  chartkick
   jbuilder (~> 2.7)
   listen (~> 3.2)
   mimemagic!

@@ -11,7 +11,8 @@ class MatchesController < ApplicationController
       @matches = Match.where(quiz_id: @id)
       @questions = helpers.select_questions(@id, @matches)
       @general_data = helpers.select_general_data(@matches)
-
+      @general_graph_data = {"Acertos" => @general_data['correct_answers'], "Erros" => @general_data['wrong_answers']}
+      @questions_graph_data = {"Questões respondidas" => @general_data['total_answers'], "Questões não respondidas" => @general_data['total_questions'] - @general_data['total_answers']}
     rescue => e
       redirect_to '/quizzes'
     end

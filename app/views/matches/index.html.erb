@@ -1,23 +1,26 @@
 <h2 style="margin-bottom: 50px">Relatórios sobre o quiz "<%= @quiz_title %>" </h2>
 <% if @matches.any? %>
   <div id="general-data">
-    <span style="font-size: 24px">Dados gerais</span>
+    <span style="font-size: 30px">Dados gerais</span>
     <div id="data-body">
-      <div class="data">
-        <span> Partidas jogadas: <%= @general_data['total_matches'] %></span>
-        <span> Total de respostas: <%= @general_data['total_answers'] %></span>
-        <span> Total de respostas corretas: <%= @general_data['correct_answers'] %></span>
-        <span> Total de respostas erradas: <%= @general_data['wrong_answers'] %></span>
-        <span> <%= @general_data['percentual'] %>% de acertos</span>
+      <div class="data-left">
+        <span> Partidas jogadas: <b><%= @general_data['total_matches'] %></b></span>
+        <span> Total de questões: <b><%= @general_data['total_questions'] %></b></span>
+        <span> Total de questões respondidas: <b><%= @general_data['total_answers'] %></b></span>
+        <span> Total de respostas corretas: <b><%= @general_data['correct_answers'] %></b></span>
+        <span> Total de respostas erradas: <b><%= @general_data['wrong_answers'] %></b></span>
+        <span> <b><%= @general_data['correct_percentual'] %>%</b> de acertos</span>
+        <span> <b><%= @general_data['answered_percentual'] %>%</b> de questões respondidas</span>
       </div>
-      <div class="data">
-        <span> Gráfico </span>
+      <div class="data-right">
+        <%= pie_chart @general_graph_data, height: "200px", width: "200px", dataset: {borderWidth: 1} %>
+        <%= pie_chart @questions_graph_data, height: "200px", dataset: {borderWidth: 1} %>
       </div>
     </div>
   </div>
   <% @questions.each do |question| %>
     <div class="question-card">
-      <h4><%= question['title'] %></h4>
+      <h4 style="color: #000000"><%= question['title'] %></h4>
       <span>Total de respostas = <%= question['total_answers'] %></span>
       <span>Acertos = <%= question['correct'] %></span>
       <span>Tempo médio de resposta = <%= question['average_time'] %> segundos</span>

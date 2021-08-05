@@ -2,6 +2,7 @@ module MatchesHelper
 
   def init_matches_data(matches)
     arr = []
+
     matches.each do |match|
       match.results['questions_answered'].each do |data|
         arr.push(data)
@@ -54,19 +55,23 @@ module MatchesHelper
     data.each do |d|
       results.push(d.results)
     end
+    total_questions = 0
     total_answers = 0
     total_correct = 0
 
     results.each do |result|
+      total_questions += 15
       total_answers += result['total_questions']
       total_correct += result['total_correct_questions']
     end
     return {
+      'total_questions' => total_questions,
       'total_matches' => data.size,
       'total_answers' => total_answers,
       'correct_answers' => total_correct,
       'wrong_answers' => total_answers - total_correct,
-      'percentual' => ((total_correct / total_answers.to_f) * 100).to_int
+      'correct_percentual' => ((total_correct / total_answers.to_f) * 100).to_int,
+      'answered_percentual' => ((total_answers / total_questions.to_f) * 100).to_int
     }
   end
 end

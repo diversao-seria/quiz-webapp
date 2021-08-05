@@ -1,0 +1,45 @@
+// Place all the styles related to the matches controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+#general-data{
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  padding: 15px 30px 15px 30px;
+  box-shadow: 0px 5px 12px 0px rgba(176,176,176,1);
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+#data-body{
+  display: flex;
+  flex-direction: row;
+}
+
+.data-left{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 10px;
+  width: 50%;
+  justify-content: center;
+}
+
+.data-right{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  margin: 10px;
+  width: 50%;
+  justify-content: center;
+}
+
+.question-card{
+  display: flex;
+  padding: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 5px 12px 0px rgba(176,176,176,1);
+  font-size: 16px;
+  margin: 10px;
+  flex-direction: column;
+}

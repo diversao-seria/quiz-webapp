@@ -24,10 +24,10 @@
         <% if logged_in? %>
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a>Meus Quizzes</a></li>
+              <li><%= link_to "Meus Quizzes", quizzes_path, method: :get %></li>
             </ul>
             <ul class="nav navbar-nav">
-              <%= link_to "Log out", sign_out_path, method: :delete %>
+              <li><%= link_to "Log out", sign_out_path, method: :delete %></li>
             </ul>
           </div>
         <% end %>

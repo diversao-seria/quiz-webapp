@@ -14,5 +14,9 @@ Rails.application.routes.draw do
 
   resources :matches, only: [:create, :index]
 
+  resources :players, only: [:create, :index]
+
+  match 'authenticate' => 'authenticator#authenticate', :via => :post
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

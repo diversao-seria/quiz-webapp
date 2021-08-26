@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_22_230024) do
+ActiveRecord::Schema.define(version: 2021_08_25_221433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "adminpack"
@@ -31,15 +31,18 @@ ActiveRecord::Schema.define(version: 2021_07_22_230024) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "start_time"
+    t.bigint "player_id"
+    t.index ["player_id"], name: "index_matches_on_player_id"
     t.index ["quiz_id"], name: "index_matches_on_quiz_id"
   end
 
   create_table "players", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
+    t.string "username"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -54,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_07_22_230024) do
     t.bigint "user_id"
     t.string "title"
     t.string "code"
+    t.jsonb "questions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_quizzes_on_user_id"
@@ -69,6 +73,7 @@ ActiveRecord::Schema.define(version: 2021_07_22_230024) do
   end
 
   add_foreign_key "alternatives", "questions"
+  add_foreign_key "matches", "players"
   add_foreign_key "matches", "quizzes"
   add_foreign_key "questions", "quizzes"
   add_foreign_key "quizzes", "users"

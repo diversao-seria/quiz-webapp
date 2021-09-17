@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   resources :quizzes
   match 'quiz' => 'quizzes#find_by_code', :via => :get
 
-  resources :matches, only: [:create, :index]
+  #resources :matches
+  get '/matches', to: 'matches#index'
+  get '/matches/:match_id/player/:player_id', to: 'matches#players_show', as: :player_data
+  get '/matches/:match_id', to: 'matches#match_show', as: :match
+  post '/matches', to: 'matches#create'
 
   resources :players, only: [:create, :index]
 

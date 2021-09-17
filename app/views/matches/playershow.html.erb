@@ -1,0 +1,26 @@
+<%= link_to "Voltar à página de relatórios", :controller => "matches", :quiz => @quiz_id %>
+<h2>Resultados do jogador <b><%= @player['name'] %></b> no quiz <b><%= @quiz_title %></b> </h2>
+<p>Email do jogador: <%= @player['email'] %></p>
+<div id="general-data">
+  <span style="font-size: 30px; margin-bottom: 10px; font-weight: bold">Dados gerais</span>
+  <div id="personal-data-body">
+    <span>Partidas jogadas: <%= @data['total_matches'] %></span>
+    <span>Tempo médio: <%= @data['average_time'] %></span>
+    <span>Total de questões respondidas: <%= @data['total_answers'] %></span>
+    <span>Total de acertos: <%= @data['correct_answers'] %></span>
+    <span>Total de erros: <%= @data['wrong_answers'] %></span>
+  </div>
+</div>
+
+  <% @data['matches'].each do |match| %>
+  <div class="question-card">
+    <div id="personal-data-body">
+      <span>Partida jogada em <%= match['played_at'] %></span>
+      <span>Total de respostas: <%= match['total_answers'] %></span>
+      <span>Acertos: <%= match['correct_answers'] %></span>
+      <span>Erros: <%= match['wrong_answers'] %></span>
+    </div>
+  </div>
+  <% end %>
+
+

@@ -5,7 +5,7 @@
     <%= @quiz.errors.full_messages.first if @quiz.errors.any? %>
     <%= form.text_field :title, placeholder: 'Título do quiz', class:'form-control' %>
 
-    <% 15.times { -%>
+    <% 5.times { -%>
       <%= render "questions/question", form: form %>
     <% } %>
 

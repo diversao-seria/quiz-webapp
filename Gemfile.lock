@@ -100,6 +100,7 @@ GEM
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     jsonapi-renderer (0.2.2)
+    jwt (2.2.3)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -188,6 +189,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    simple_command (0.1.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -241,6 +243,7 @@ DEPENDENCIES
   byebug
   chartkick
   jbuilder (~> 2.7)
+  jwt
   listen (~> 3.2)
   mimemagic!
   pg (>= 0.18, < 2.0)
@@ -249,6 +252,7 @@ DEPENDENCIES
   rails-i18n
   sass-rails (>= 6)
   sassc
+  simple_command
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

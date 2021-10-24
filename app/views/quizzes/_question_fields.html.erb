@@ -1,0 +1,19 @@
+<div class="nested-fields">
+  <%= f.hidden_field :_destroy %>
+
+  <label> Questão </label>
+
+  <div class="col-md-12">
+    <%= f.text_field :title, placeholder: 'Título da questão', class: 'form-control' %>
+  </div>
+
+  <% 4.times { -%>
+    <%= f.fields_for :alternatives do |alternative_form| %> 
+      <%= render "alternative_fields", f: alternative_form %>
+    <% end %>
+  <% } %>
+
+  <div>
+    <%= link_to "Remover questão", '#', class: "remove_fields" %>
+  </div>
+</div>

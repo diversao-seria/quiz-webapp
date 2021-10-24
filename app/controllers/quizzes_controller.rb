@@ -19,7 +19,7 @@ class QuizzesController < ApplicationController
 
   def new
     @quiz = Quiz.new
-    @quiz.questions.build.alternatives.build
+    @quiz.questions.build
   end
 
   def create
@@ -39,14 +39,16 @@ class QuizzesController < ApplicationController
     render :json => @quiz
   end
 
+  private
+
   def quiz_params
     params.require(:quiz).permit(
       :user_id,
       :title,
       :code,
-      :questions,
       questions_attributes: [
         :title,
+        :_destroy,
         alternatives_attributes: [
           :text,
           :correct

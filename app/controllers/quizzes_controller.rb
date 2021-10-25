@@ -19,7 +19,6 @@ class QuizzesController < ApplicationController
 
   def new
     @quiz = Quiz.new
-    @quiz.questions.build
   end
 
   def create

@@ -1,8 +1,6 @@
 <div class="nested-fields">
   <%= f.hidden_field :_destroy %>
 
-  <label> Questão </label>
-
   <div class="col-md-12">
     <%= f.text_field :title, placeholder: 'Título da questão', class: 'form-control' %>
   </div>
@@ -16,4 +14,5 @@
   <div>
     <%= link_to "Remover questão", '#', class: "remove_fields" %>
   </div>
+  <hr/>
 </div>

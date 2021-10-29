@@ -1,15 +1,23 @@
-<h3>Criação de Novo Quiz</h3>
-
-<%= form_with(model: @quiz) do |form| %>
+<%= form_with(model: @quiz) do |f| %>
   <div class="container quiz-container">
     <%= @quiz.errors.full_messages.first if @quiz.errors.any? %>
-    <%= form.text_field :title, placeholder: 'Título do quiz', class:'form-control' %>
 
-    <% 5.times { -%>
-      <%= render "questions/question", form: form %>
-    <% } %>
+    <h4>Qual o título do seu novo quiz?</h4>
+    <%= f.text_field :title, placeholder: 'Título do quiz', class:'form-control' %>
 
-    <%= form.submit class: 'btn btn-success' %>
+    <br/>
+    <h4>Agora, adicione as questões...</h4>
+
+    <fieldset>
+      <%= f.fields_for :questions do |question_form| %>
+        <%= render "question_fields", f: question_form %>
+      <% end %>
+
+      <%= link_to_add_fields "Adicionar questão", f, :questions %>
+    </fieldset>
+
+    <br/>
+    <%= f.submit class: 'btn btn-success' %>
   </div>
 <% end %>
 

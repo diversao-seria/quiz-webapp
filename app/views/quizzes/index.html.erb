@@ -4,16 +4,20 @@
 </div>
 
 <% if @quizzes.any? %>
-  <h4>Seus quizzes...</h4>
   <div class="container" style="width: 600px">
-    <% @quizzes.each do |quiz| %>
-      <table class="table index-table">
-        <td><%= quiz.id %></td>
-        <td><%= quiz.title %></td>
-        <td><%= quiz.code %></td>
-        <td><%= link_to "Show", quiz %></td>
-        <td><%= link_to "Ver resultados", :controller => "matches", :quiz => quiz.id %></td>
-      </table>
-    <% end %>
+    <table class="table index-table">
+      <tr>
+        <th>Quizzes</th>
+        <th>Código de acesso</th>
+        <th>Resultados</th>
+      </tr>
+      <% @quizzes.each do |quiz| %>
+        <tr>
+          <td><%= quiz.title %></td>
+          <td><%= quiz.code %></td>
+          <td><%= link_to "Ver resultados", :controller => "matches", :quiz => quiz.id %></td>
+        </tr>
+      <% end %>
+    </table>
   </div>
 <% end %>

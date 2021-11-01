@@ -20,7 +20,41 @@
 body {
   padding-top: 50px;
 }
+
 .starter-template {
   padding: 40px 15px;
   text-align: center;
+}
+
+.navbar {
+  background-color: #000033;
+}
+
+.navbar-nav {
+  float: right;
+}
+
+.quizle-logo {
+  margin-top: 5px;
+  height: 40px;
+}
+
+.btn-primary {
+  border-color: #000066;
+  background-color: #000033;
+}
+
+.btn-primary:hover, .btn-primary:active:focus {
+  background-color: #000066;
+}
+
+.hint-card {
+  width: 50%;
+  margin: 0 auto;
+  background-color: #e6e6ff;
+  border-radius: 15px;
+  max-width: 400px;
+  padding: 15px;
+  color: gray;
+  text-align: left;
 }

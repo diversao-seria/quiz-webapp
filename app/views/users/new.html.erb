@@ -1,38 +1,21 @@
 <%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <div class="alert-error">
-          O formulário contém <%= pluralize(@user.errors.count, "erro") %>.
-      </div>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+  <% if @user.errors.any? %> 
+    <div class="hint-card">
+      <b> Houve um problema no cadastro: </b>
+      <br> • Verifique se o e-mail é válido
+      <br> • Verifique se sua senha contém 6 ou mais caracteres
+      <br> • Verifique se a senha e a confirmação correspondem
     </div>
   <% end %>
 
+  <div class="container signup-container">
+    <h4>Cadastre-se!</h4>
+    <%= f.text_field :name, placeholder: 'Seu nome', class:'form-control' %>
+    <%= f.email_field :email, placeholder: 'Seu e-mail', class:'form-control' %>
+    <%= f.password_field :password, placeholder: 'Sua senha', class:'form-control' %>
+    <%= f.password_field :password_confirmation, placeholder: 'Confirme sua senha', class:'form-control' %>
   <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
 
-  <div>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-
-  <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <div>
-    <%= f.submit "Cadastrar"%>
-  </div>
+  <br>
+  <%= f.submit "Cadastrar", class: 'btn btn-primary'%>
 <% end %>

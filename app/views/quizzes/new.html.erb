@@ -1,9 +1,7 @@
 <%= form_with(model: @quiz) do |f| %>
   <div class="container quiz-container">
-    <%= @quiz.errors.full_messages.first if @quiz.errors.any? %>
-
     <h4>Qual o título do seu novo quiz?</h4>
-    <%= f.text_field :title, placeholder: 'Título do quiz', class:'form-control' %>
+    <%= f.text_field :title, placeholder: 'Título do quiz', class:'form-control', maxlength: 32 %>
 
     <br/>
     <h4>Agora, adicione as questões...</h4>
@@ -17,8 +15,6 @@
     </fieldset>
 
     <br/>
-    <%= f.submit class: 'btn btn-success' %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
-
-<%= link_to 'Voltar', quizzes_path, :class => 'btn btn-primary' %>

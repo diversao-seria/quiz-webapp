@@ -25,6 +25,8 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new(quiz_params)
     @quiz.user_id = @current_user.id
 
+    set_correct_alternatives
+
     if @quiz.save
       redirect_to @quiz
     else
@@ -54,5 +56,9 @@ class QuizzesController < ApplicationController
         ]
       ]
     )
+  end
+
+  def set_correct_alternatives
+    @quiz.questions.each { |question| question.alternatives.first.correct = true }
   end
 end

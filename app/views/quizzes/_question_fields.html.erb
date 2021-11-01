@@ -5,9 +5,13 @@
     <%= f.text_field :title, placeholder: 'Título da questão', class: 'form-control' %>
   </div>
 
-  <% 4.times { -%>
+  <%= f.fields_for :alternatives do |alternative_form| %> 
+    <%= render "correct_alternative_fields", f: alternative_form %>
+  <% end %>
+
+  <% 3.times { -%>
     <%= f.fields_for :alternatives do |alternative_form| %> 
-      <%= render "alternative_fields", f: alternative_form %>
+      <%= render "incorrect_alternative_fields", f: alternative_form %>
     <% end %>
   <% } %>
 

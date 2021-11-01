@@ -12,3 +12,26 @@
   padding: 10px;
   border-radius: 10px;
 }
+
+.correct-alternative {
+  color: darkgreen;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+
+.correct-icon {
+  filter: invert(10%) sepia(69%) saturate(7060%) hue-rotate(136deg) brightness(99%) contrast(106%);
+}
+
+.incorrect-alternative {
+  color: darkred;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+
+.incorrect-icon {
+  size: 100px;
+  filter: invert(9%) sepia(93%) saturate(3620%) hue-rotate(359deg) brightness(109%) contrast(118%);
+}

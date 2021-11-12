@@ -1,6 +1,6 @@
 class Quiz < ApplicationRecord
   belongs_to :user
-  has_many :matches
+  has_many :matches, dependent: :destroy
   has_many :questions, dependent: :destroy
   accepts_nested_attributes_for :questions, allow_destroy: true
 

@@ -16,6 +16,7 @@
           <td><%= quiz.title %></td>
           <td><%= quiz.code %></td>
           <td><%= link_to "Ver resultados", :controller => "matches", :quiz => quiz.id %></td>
+          <td><%= link_to 'Deletar', quiz_path(quiz), :method => :delete, data: { confirm: "Tem certeza que quer deletar o quiz?" } %></td>
         </tr>
       <% end %>
     </table>

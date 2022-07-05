@@ -2,8 +2,12 @@ class MatchesController < ApplicationController
 
   def index
     @id = params[:quiz]
+    @match_id = params[:match_id]
+    unless @match_id.nil?
+      render json: match_show(@match_id)
+      return
+    end
     quiz = Quiz.find(@id)
-    @quiz_title = quiz.title
     matches = Match.where(quiz_id: @id)
     players_array = []
     cache_array = []
@@ -15,6 +19,10 @@ class MatchesController < ApplicationController
       cache_array.append(match.player_id)
     end
     @arr = players_array
+    render json: {
+      "quiz_title": quiz.title,
+      "matches": matches
+    }
   end
 
   def create
@@ -26,21 +34,18 @@ class MatchesController < ApplicationController
     end
   end
 
-  def match_show
-    @id = params[:match_id]
-    return redirect_to(root_url) if @id.blank?
-
+  def match_show(match_id)
     begin
-      quiz = Quiz.find(@id)
+      quiz = Quiz.find(match_id)
       @quiz_title = quiz.title
-      @matches = Match.where(quiz_id: @id)
-      @questions = helpers.select_questions(@id, @matches, quiz)
-      @general_data = helpers.select_general_data(@id, @matches)
+      @matches = Match.where(quiz_id: match_id)
+      @questions = helpers.select_questions(match_id, @matches, quiz)
+      @general_data = helpers.select_general_data(match_id, @matches)
       @general_graph_data = {"Acertos" => @general_data['correct_answers'], "Erros" => @general_data['wrong_answers']}
       @questions_graph_data = {"Questões respondidas" => @general_data['total_answers'], "Questões não respondidas" => @general_data['total_questions'] - @general_data['total_answers']}
-      render :matchshow
+      return @general_data, @general_graph_data, @questions_graph_data
     rescue => e
-      redirect_to '/quizzes'
+      render json: {"Erro": "Erro"}
     end
   end
 
@@ -52,7 +57,7 @@ class MatchesController < ApplicationController
     @quiz_title = quiz.title
     matches = Match.where(player_id: @player_id)
     @data = helpers.select_personal_data(matches)
-    render :playershow
+    render json: @data
   end
 
   def match_params

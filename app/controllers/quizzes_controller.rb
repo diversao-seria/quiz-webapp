@@ -1,8 +1,10 @@
 class QuizzesController < ApplicationController
-  before_action :authorize, except: [:find_by_code]
+  #before_action :authorize, except: [:find_by_code]
 
   def index
-    @quizzes = Quiz.where(user_id: @current_user)
+    user_id = params[:user_id]
+    quizzes = Quiz.where(user_id: user_id)
+    render json: quizzes
   end
 
   def show
@@ -22,15 +24,14 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    @quiz = Quiz.new(quiz_params)
-    @quiz.user_id = @current_user.id
+    @quiz = Quiz.create(quiz_params)
 
     set_correct_alternatives
 
     if @quiz.save
-      redirect_to @quiz
+      render json: @quiz, status: :created
     else
-      render 'new'
+      render json: @quiz.errors.messages, status: :unprocessable_entity
     end
   end
 

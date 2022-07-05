@@ -2,14 +2,19 @@ class PlayersController < ApplicationController
 
   def index
     @player_id = params[:player_id]
-    @players = Match.where(player_id: @player_id)
-    render json: @players
+    begin
+      @player = Player.find(@player_id)
+      @player.password_digest = "filtered"
+      render json: @player
+    rescue
+      render json: {"mensagem": "Player não encontrado"}, status: :unprocessable_entity
+    end
   end
 
   def create
     @player = Player.create(create_params)
     if @player.save
-      head :created
+      render json: {"id": @player.id}, status: :created
     else
       render json: @player.errors.messages, status: :unprocessable_entity
     end

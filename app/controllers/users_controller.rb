@@ -2,30 +2,27 @@ class UsersController < ApplicationController
   #before_action :authorize, except: [:new, :create]
 
   def index
-    redirect_to '/quizzes'
-  end
-
-  def new
-    @user = User.new
+    user_id = params[:user_id]
+    begin
+      user = User.find(user_id)
+      user.password_digest = "filtered"
+      render json: user
+    rescue => e
+      head :not_found
+    end
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.create(user_params)
     if @user.save
-      sign_in(@user)
-      redirect_to '/quizzes'
+      render json: {"id": @user.id}, status: :created
     else
-      render 'new'
+      render json: @user.errors.messages, status: :bad_request
     end
   end
 
   private
   def user_params
-    params.require(:user).permit(
-      :name,
-      :email,
-      :password,
-      :password_confirmation
-    )
+    params.require(:user).permit(:name, :email, :password)
   end
 end

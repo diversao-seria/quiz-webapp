@@ -7,18 +7,6 @@ class QuizzesController < ApplicationController
     render json: quizzes
   end
 
-  def show
-    begin
-      @quiz = Quiz.find(params[:id])
-
-      if @quiz.user_id != @current_user.id
-        redirect_to '/quizzes'
-      end
-    rescue => e
-      redirect_to '/quizzes'
-    end
-  end
-
   def new
     @quiz = Quiz.new
   end
@@ -36,10 +24,9 @@ class QuizzesController < ApplicationController
   end
 
   def destroy
-    @quiz = Quiz.find(params[:id])
+    @quiz = Quiz.find(params[:quiz_id])
     @quiz.destroy
-
-    redirect_to '/quizzes'
+    head :no_content
   end
 
   def find_by_code

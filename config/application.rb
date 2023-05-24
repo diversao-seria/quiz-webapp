@@ -35,5 +35,6 @@ module QuizWebapp
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
     config.i18n.default_locale = :pt
     config.autoload_paths << Rails.root.join('lib')
+    config.secret_key_base = 'ds123456'
   end
 end

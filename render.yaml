@@ -1,0 +1,18 @@
+databases:
+  - name: quiz_webapp
+    databaseName: quiz_webapp_production
+    user: quiz_webapp
+
+services:
+  - type: web
+    name: quiz_webapp
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: quiz_webapp
+          property: connectionString
+      - key: SECRET_KEY_BASE
+        sync: false

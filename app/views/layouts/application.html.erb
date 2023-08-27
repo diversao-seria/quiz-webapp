@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <%= favicon_link_tag 'quizle_icon.png' %>
 
-    <title>Quizle</title>
+    <title>Plataforma Quizle</title>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -21,7 +21,7 @@
         <div class="navbar-header">
           <a class="navbar-brand">
             <%= link_to quizzes_path, method: :get do %>
-              <%= image_tag ("quizle_logo.png"), class: 'quizle-logo' %>
+              <%= image_tag 'quizle_logo.png', :alt=> 'Plataforma Quizle', :class=>'quizle-logo' %>
             <% end %>
           </a>
         </div>

@@ -1,6 +1,7 @@
 <%= link_to "Voltar à página de relatórios", :controller => "matches", :quiz => @id %>
 <h2 style="margin-bottom: 50px">Relatórios sobre o quiz "<%= @quiz_title %>" </h2>
-<% if @matches.any? %>
+
+<% if @matches.try(:any?) %>
   <div id="personal-general-data">
     <span style="font-size: 30px">Dados gerais</span>
     <div id="data-body">

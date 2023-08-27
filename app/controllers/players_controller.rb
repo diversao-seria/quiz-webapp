@@ -16,7 +16,7 @@ class PlayersController < ApplicationController
   end
 
   def create_params
-    params.require(:player).permit(:name, :email, :password, :username)
+    params.fetch(:player).permit(:name, :email, :password, :username)
   end
 
 end

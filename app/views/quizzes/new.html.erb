@@ -2,6 +2,8 @@
   <div class="container quiz-container">
     <h4>Qual o título do seu novo quiz?</h4>
     <%= f.text_field :title, placeholder: 'Título do quiz', class:'form-control', maxlength: 32 %>
+    <%= f.label :title, 'Insira o título do quiz' %>
+
 
     <br/>
     <h4>Agora, adicione as questões...</h4>
@@ -9,9 +11,12 @@
     <fieldset>
       <%= f.fields_for :questions do |question_form| %>
         <%= render "question_fields", f: question_form %>
-      <% end %>
+
+    <% end %>
 
       <%= link_to_add_fields "Adicionar questão", f, :questions %>
+      <%= f.label :questions, 'Insira as questões' %>
+
     </fieldset>
 
     <br/>

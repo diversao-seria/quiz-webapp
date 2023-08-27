@@ -8,13 +8,23 @@
     </div>
   <% end %>
 
+  <div class="nav">
+    <h1>Faça o seu cadastro</h1>
+  </div>
   <div class="container signup-container">
-    <h4>Cadastre-se!</h4>
+
+    <h4>Insira os dados requeridos</h4>
+
     <%= f.text_field :name, placeholder: 'Seu nome', class:'form-control' %>
+    <%= f.label :name, 'Escreva seu nome' %>
     <%= f.email_field :email, placeholder: 'Seu e-mail', class:'form-control' %>
+    <%= f.label :email, 'Escreva seu email' %>
     <%= f.password_field :password, placeholder: 'Sua senha', class:'form-control' %>
-    <%= f.password_field :password_confirmation, placeholder: 'Confirme sua senha', class:'form-control' %>
-  <div>
+    <%= f.label :password, 'Escreva sua senha' %>
+    <%= f.password_field :password_field, placeholder: 'Confirme sua senha', class:'form-control' %>
+    <%= f.label :password_field, 'Confirme sua senha' %>
+
+    <div>
 
   <br>
   <%= f.submit "Cadastrar", class: 'btn btn-primary'%>

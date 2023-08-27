@@ -2,8 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.nav{
+  color: darkred;
+  font-family: sans-serif;
+
+}
 .container.signup-container {
-  max-width: 300px;
-  padding: 10px;
-  border-radius: 10px;
+  width: 400px;
+  margin: auto;
+  padding-top: 20px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  border-radius: 5px;
 }

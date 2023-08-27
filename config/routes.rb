@@ -14,11 +14,12 @@ Rails.application.routes.draw do
 
   #resources :matches
   get '/matches', to: 'matches#index'
-  get '/matches/:match_id/player/:player_id', to: 'matches#players_show', as: :player_data
-  get '/matches/:match_id', to: 'matches#match_show', as: :match
+  get '/matches/:match_id/player/:player_id', to: 'matches#playershow', as: :player_data
+  get '/matches/:match_id', to: 'matches#matchshow', as: :match
   post '/matches', to: 'matches#create'
 
   resources :players, only: [:create, :index]
+
 
   match 'authenticate' => 'authenticator#authenticate', :via => :post
 

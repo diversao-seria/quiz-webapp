@@ -1,9 +1,10 @@
 <div style="margin-bottom: 50px">
-  <h3>Crie agora um novo quiz!</h3>
+  <h1>Crie agora um novo quiz!</h1>
+  <h3>Clique no botão abaixo</h3>
   <%= link_to "Criar", new_quiz_path, class: "btn btn-primary"%>
 </div>
 
-<% if @quizzes.any? %>
+<% if @quizzes.try(:any?) %>
   <div class="container" style="width: 600px">
     <table class="table index-table">
       <tr>

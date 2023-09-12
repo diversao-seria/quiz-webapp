@@ -14,8 +14,9 @@ Rails.application.routes.draw do
 
   #resources :matches
   get '/matches', to: 'matches#index'
-  get '/matches/:match_id/player/:player_id', to: 'matches#playershow', as: :player_data
-  get '/matches/:match_id', to: 'matches#matchshow', as: :match
+  get '/matches/quiz_code', to: 'matches#get_matches_by_code', as: :match_by_code
+  get '/matches/:match_id/player/:player_id', to: 'matches#players_show', as: :player_data
+  get '/matches/:match_id', to: 'matches#match_show', as: :match
   post '/matches', to: 'matches#create'
 
   resources :players, only: [:create, :index]

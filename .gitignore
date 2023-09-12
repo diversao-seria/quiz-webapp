@@ -36,3 +36,6 @@ yarn-debug.log*
 .yarn-integrity
 
 /.idea
+
+yarn.lock
+Gemfile.lock

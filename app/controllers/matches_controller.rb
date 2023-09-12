@@ -2,9 +2,10 @@ class MatchesController < ApplicationController
 
   def index
     @id = params[:quiz]
+    #quiz = Quiz.find_by code: @id
     quiz = Quiz.find(@id)
     @quiz_title = quiz.title
-    matches = Match.where(quiz_id: @id)
+    matches = Match.where(quiz_id: quiz.id)
     players_array = []
     cache_array = []
     matches.each do |match|
@@ -15,6 +16,7 @@ class MatchesController < ApplicationController
       cache_array.append(match.player_id)
     end
     @arr = players_array
+    #render json: matches, status: :ok
   end
 
   def create
@@ -49,10 +51,31 @@ class MatchesController < ApplicationController
     @quiz_id = params[:match_id]
     quiz = Quiz.find(@quiz_id)
     @player = Player.find(@player_id)
+    puts @player
     @quiz_title = quiz.title
     matches = Match.where(player_id: @player_id)
     @data = helpers.select_personal_data(matches)
     render :playershow
+    #render json: @data, status: :ok
+  end
+
+  # Rota /matches/quiz_code/?code=XXXX - retorna todas as partidas de um quiz a partir do código
+  def get_matches_by_code
+    @id = params[:code]
+    quiz = Quiz.find_by code: @id
+    @quiz_title = quiz.title
+    matches = Match.where(quiz_id: quiz.id)
+    players_array = []
+    cache_array = []
+    matches.each do |match|
+      if cache_array.include? match.player_id or match.player_id.blank?
+        next
+      end
+      players_array.append({ "id" => match.player_id, "name" => Player.find(match.player_id).name})
+      cache_array.append(match.player_id)
+    end
+    @arr = players_array
+    render json: matches, status: :ok
   end
 
   def match_params
